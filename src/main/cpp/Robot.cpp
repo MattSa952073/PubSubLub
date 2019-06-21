@@ -38,14 +38,17 @@ public:
         m_climber.Subscribe(m_climber);
         m_climber.Subscribe(m_elevator);
         m_climber.Subscribe(m_fourBarLift);
+        m_climber.Subscribe(m_shooter);
         m_drivetrain.Subscribe(*this);
         m_elevator.Subscribe(*this);
         m_elevator.Subscribe(m_climber);
         m_elevator.Subscribe(m_fourBarLift);
+        m_elevator.Subscribe(m_shooter); 
         m_intake.Subscribe(*this);
         m_fourBarLift.Subscribe(*this);
         m_fourBarLift.Subscribe(m_elevator);
         m_fourBarLift.Subscribe(m_climber);
+        m_shooter.Subscribe(*this); 
 
         camera.SetResolution(160, 120);
         camera.SetFPS(15);
@@ -157,6 +160,7 @@ private:
     Logger m_logger;
     Intake m_intake;
     FourBarLift m_fourBarLift;
+    Shooter m_shooter; 
 
     frc::Joystick m_driveStick1{kDriveStick1Port};
     frc::Joystick m_driveStick2{kDriveStick2Port};

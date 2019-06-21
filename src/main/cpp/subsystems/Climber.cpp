@@ -187,6 +187,10 @@ void Climber::ProcessMessage(const ButtonPacket& message) {
         std::lock_guard<std::mutex> lock(m_cacheMutex);
         m_buttonPacket = message;
     }
+    if (message.topic == "Robot/AppendageStick2" && message.button == 4 && 
+    message.pressed) {
+        Down(); 
+    }
 }
 
 void Climber::ProcessMessage(const CommandPacket& message) {

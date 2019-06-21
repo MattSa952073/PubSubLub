@@ -104,6 +104,10 @@ void Elevator::ProcessMessage(const ButtonPacket& message) {
         message.pressed) {
         SetGoal(kCargoShip);
     }
+    if (message.topic == "Robot/AppendageStick2" && message.button == 4 && 
+    message.pressed) {
+        Shooter::Shoot(); 
+    }
 }
 
 void Elevator::ProcessMessage(const CommandPacket& message) {
