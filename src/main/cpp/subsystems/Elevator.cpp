@@ -104,6 +104,7 @@ void Elevator::ProcessMessage(const ButtonPacket& message) {
         message.pressed) {
         SetGoal(kCargoShip);
     }
+   
 }
 
 void Elevator::ProcessMessage(const CommandPacket& message) {
@@ -130,5 +131,8 @@ void Elevator::ProcessMessage(const CommandPacket& message) {
     }
     if (message.topic == "Climber/ScoringProfile") {
         m_controller.SetScoringIndex();
+    } 
+    if (message.topic == "Climber/Shoot") {
+        Shooter::Shoot(); 
     }
 }

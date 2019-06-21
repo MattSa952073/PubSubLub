@@ -187,6 +187,7 @@ void Climber::ProcessMessage(const ButtonPacket& message) {
         std::lock_guard<std::mutex> lock(m_cacheMutex);
         m_buttonPacket = message;
     }
+    
 }
 
 void Climber::ProcessMessage(const CommandPacket& message) {
@@ -208,6 +209,11 @@ void Climber::ProcessMessage(const CommandPacket& message) {
     }
     if (message.topic == "Climber/Up") {
         SetGoal(0);
+    }
+    if (message.topic == "Shooter/Down") {
+        Down(); 
+        CommandPacket message{"Shoot"}
+        Publish (message);
     }
 }
 
