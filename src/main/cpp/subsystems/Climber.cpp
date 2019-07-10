@@ -211,7 +211,7 @@ void Climber::ProcessMessage(const CommandPacket& message) {
         SetGoal(0);
     }
     if (message.topic == "Shooter/Down") {
-        Down(); 
+        SetGoal(kBottomHatch); 
         CommandPacket message{"Shoot"}
         Publish (message);
     }
